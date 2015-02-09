@@ -11,5 +11,5 @@ PACKAGECONFIG_GL = "gles2"
 
 EXTRA_OECONF += "-qpa eglfs"
 
-MESA_RDEPENDS = "libegl-gallium mesa-driver-swrast"
+MESA_RDEPENDS = "mesa-driver-swrast"
 RDEPENDS_${PN}_append = " ${MESA_RDEPENDS}"
