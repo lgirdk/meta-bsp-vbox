@@ -1,6 +1,11 @@
 
-RDEPS_WEBKIT_MEDIAPLAYER = "gst-plugins-base-app gst-ffmpeg"
-
+# Fixme: This list probably contains a lot that isn't actually required...
 RDEPENDS_${PN} += "\
-    ${RDEPS_WEBKIT_MEDIAPLAYER} \
+    gstreamer1.0-meta-base \
+    gstreamer1.0-meta-audio \
+    gstreamer1.0-meta-video \
+    gstreamer1.0-meta-debug \
+    gstreamer1.0-plugins-base-app \
+    gstreamer1.0-plugins-good-isomp4 \
+    gstreamer1.0-libav \
 "
