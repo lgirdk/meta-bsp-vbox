@@ -1,5 +1,3 @@
-# Copyright (c) 2013 LG Electronics, Inc.
-
 SUMMARY = "VirtualBox Linux Guest Drivers"
 SECTION = "core"
 LICENSE = "GPL-2.0"
@@ -9,7 +7,7 @@ DEPENDS = "virtual/kernel"
 
 inherit module kernel-module-split
 
-COMPATIBLE_MACHINE = "(qemux86|qemux86-64|vbox32|vbox64)"
+COMPATIBLE_MACHINE = "(qemux86|qemux86-64)"
 
 VBOX_NAME = "VirtualBox-${PV}"
 
@@ -32,7 +30,7 @@ do_export_sources() {
     ${WORKDIR}/${VBOX_NAME}/src/VBox/Additions/linux/export_modules ${T}/vbox_modules.tar.gz
     tar -C "${S}" -xzf ${T}/vbox_modules.tar.gz
 
-    #add a mount utility to use shared folder from VBox Addition Source Code
+    # add a mount utility to use shared folder from VBox Addition Source Code
     mkdir -p "${S}/utils"
     install ${WORKDIR}/${VBOX_NAME}/src/VBox/Additions/linux/sharedfolders/mount.vboxsf.c ${S}/utils
     install ${WORKDIR}/${VBOX_NAME}/src/VBox/Additions/linux/sharedfolders/vbsfmount.c ${S}/utils
@@ -40,7 +38,7 @@ do_export_sources() {
 
 }
 
-#add process to compile and install mount utility
+# compile and install mount utility
 do_compile_append() {
     oe_runmake -C ${S}/utils
 }
@@ -59,10 +57,9 @@ do_install_append() {
 }
 
 PACKAGES += "kernel-module-vboxguest kernel-module-vboxsf kernel-module-vboxvideo"
-RDEPENDS_${PN} += "kernel-module-vboxguest kernel-module-vboxsf kernel-module-vboxvideo"
+RRECOMMENDS_${PN} += "kernel-module-vboxguest kernel-module-vboxsf kernel-module-vboxvideo"
 
 FILES_${PN} = "${base_sbindir}"
-ALLOW_EMPTY_${PN} = "1"
 
 # autoload if installed
 KERNEL_MODULE_AUTOLOAD += "vboxguest vboxsf vboxvideo"
