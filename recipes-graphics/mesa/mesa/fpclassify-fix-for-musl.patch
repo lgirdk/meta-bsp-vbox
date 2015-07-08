@@ -1,0 +1,28 @@
+From f976fcd5e6e796612321b6db9fe086661ac4ee96 Mon Sep 17 00:00:00 2001
+From: Andre McCurdy <armccurdy@gmail.com>
+Date: Wed, 8 Jul 2015 15:42:50 -0700
+Subject: [PATCH] fpclassify fix for musl
+
+Musl provides fpclassify without requiring (_XOPEN_SOURCE >= 600)
+
+Signed-off-by: Andre McCurdy <armccurdy@gmail.com>
+---
+ src/mesa/main/querymatrix.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/mesa/main/querymatrix.c b/src/mesa/main/querymatrix.c
+index eb36c76..6ad3241 100644
+--- a/src/mesa/main/querymatrix.c
++++ b/src/mesa/main/querymatrix.c
+@@ -76,7 +76,7 @@ fpclassify(double x)
+ #elif defined(__APPLE__) || defined(__CYGWIN__) || defined(__FreeBSD__) || \
+      defined(__OpenBSD__) || defined(__NetBSD__) || defined(__DragonFly__) || \
+      (defined(__sun) && defined(__C99FEATURES__)) || defined(__MINGW32__) || \
+-     (defined(__sun) && defined(__GNUC__)) || defined(ANDROID) || defined(__HAIKU__)
++     (defined(__sun) && defined(__GNUC__)) || defined(ANDROID) || defined(__HAIKU__) || defined(fpclassify)
+ 
+ /* fpclassify is available. */
+ 
+-- 
+1.9.1
+

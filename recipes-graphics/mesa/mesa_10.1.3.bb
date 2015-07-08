@@ -4,6 +4,8 @@ SRC_URI = "ftp://ftp.freedesktop.org/pub/mesa/${PV}/MesaLib-${PV}.tar.bz2 \
            file://0002-pipe_loader_sw-include-xlib_sw_winsys.h-only-when-HA.patch \
            file://0006-fix-out-of-tree-egl.patch \
            file://c11-threads-Use-PTHREAD_MUTEX_RECURSIVE-by-default.patch \
+           file://fpclassify-fix-for-musl.patch \
+           file://ensure-that-dev_t-is-defined-in-vmw_screen.h.patch \
            "
 
 SRC_URI[md5sum] = "ba6dbe2b9cab0b4de840c996b9b6a3ad"

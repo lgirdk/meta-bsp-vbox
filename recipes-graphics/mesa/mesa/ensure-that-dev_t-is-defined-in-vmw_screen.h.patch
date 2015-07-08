@@ -1,0 +1,27 @@
+From c20f9d8103cdfbabbfb2b0c9a2cb578e3d141f4e Mon Sep 17 00:00:00 2001
+From: Andre McCurdy <armccurdy@gmail.com>
+Date: Wed, 8 Jul 2015 15:41:41 -0700
+Subject: [PATCH] ensure that dev_t is defined in vmw_screen.h
+
+Fix for building with musl.
+
+Signed-off-by: Andre McCurdy <armccurdy@gmail.com>
+---
+ src/gallium/winsys/svga/drm/vmw_screen.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/gallium/winsys/svga/drm/vmw_screen.h b/src/gallium/winsys/svga/drm/vmw_screen.h
+index 1a39039..456e499 100644
+--- a/src/gallium/winsys/svga/drm/vmw_screen.h
++++ b/src/gallium/winsys/svga/drm/vmw_screen.h
+@@ -34,6 +34,7 @@
+ #ifndef VMW_SCREEN_H_
+ #define VMW_SCREEN_H_
+ 
++#include <sys/types.h>
+ 
+ #include "pipe/p_compiler.h"
+ #include "pipe/p_state.h"
+-- 
+1.9.1
+
