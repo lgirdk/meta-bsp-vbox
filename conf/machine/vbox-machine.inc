@@ -42,7 +42,7 @@ LICENSE_FLAGS_WHITELIST += "commercial_x264"
 # ----------------------------------------------------------------------
 
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-yocto"
-PREFERRED_VERSION_linux-yocto ?= "3.14%"
+PREFERRED_VERSION_linux-yocto ?= "4.1%"
 
 KERNEL_IMAGETYPE = "bzImage"
 MODULE_TARBALL_DEPLOY = "0"
